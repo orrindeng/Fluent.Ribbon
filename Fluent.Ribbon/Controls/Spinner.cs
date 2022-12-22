@@ -522,16 +522,6 @@ public class Spinner : RibbonControl, IMediumIconProvider, ISimplifiedRibbonCont
             this.ValueToTextBoxText();
         }
 
-        if (e.Key == Key.Enter
-            || e.Key == Key.Escape)
-        {
-            // Move Focus
-            this.textBox!.Focusable = false;
-            this.Focus();
-            this.textBox!.Focusable = true;
-            e.Handled = true;
-        }
-
         if (e.Key == Key.Up
             && this.buttonUp is not null)
         {
