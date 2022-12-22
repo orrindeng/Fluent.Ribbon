@@ -177,7 +177,6 @@
                    Focusable="False"
                    IsOpen="{TemplateBinding IsDropDownOpen}"
                    Placement="Bottom"
-                   PlacementTarget="{Binding ElementName=PART_ContentBorder}"
                    PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
                 <Popup.Resources>
                     <ResourceDictionary>
