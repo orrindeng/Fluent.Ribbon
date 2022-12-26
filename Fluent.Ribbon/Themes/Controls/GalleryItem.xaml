@@ -9,7 +9,7 @@
         <Grid Background="Transparent">
             <Border x:Name="keyboardFocusBorder"
                     BorderBrush="{DynamicResource Fluent.Ribbon.Brushes.GalleryItem.Pressed}"
-                    BorderThickness="1"
+                    BorderThickness="0"
                     Visibility="Collapsed" />
 
             <Border x:Name="hoverBorder"
