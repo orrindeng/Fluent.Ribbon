@@ -239,20 +239,7 @@ public class ToggleButton : System.Windows.Controls.Primitives.ToggleButton, ITo
             PopupService.RaiseDismissPopupEvent(this, DismissPopupMode.Always);
         }
 
-        // fix for #481
-        // We can't overwrite OnToggle because it's "internal protected"...
-        if (string.IsNullOrEmpty(this.GroupName) == false)
-        {
-            // Only forward click if button is not checked to prevent wrong bound values
-            if (this.IsChecked == false)
-            {
-                base.OnClick();
-            }
-        }
-        else
-        {
-            base.OnClick();
-        }
+        base.OnClick();
     }
 
     /// <inheritdoc />
