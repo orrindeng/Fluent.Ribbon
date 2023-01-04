@@ -121,7 +121,6 @@
                    PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
                 <Fluent:ResizeableContentControl x:Name="PART_PopupContentControl"
                                                  MinWidth="{TemplateBinding ActualWidth}"
-                                                 MinHeight="{TemplateBinding ActualHeight}"
                                                  MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                  IsEnabled="{TemplateBinding IsEnabled}"
                                                  ResizeMode="{TemplateBinding ResizeMode}">
@@ -258,7 +257,6 @@
                    PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
                 <Fluent:ResizeableContentControl x:Name="PART_PopupContentControl"
                                                  MinWidth="{TemplateBinding ActualWidth}"
-                                                 MinHeight="{TemplateBinding ActualHeight}"
                                                  MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                  ResizeMode="{TemplateBinding ResizeMode}">
                     <ScrollViewer x:Name="PART_ScrollViewer"
