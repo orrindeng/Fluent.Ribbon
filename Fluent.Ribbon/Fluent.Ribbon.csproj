@@ -4,7 +4,8 @@
     <RootNamespace>Fluent</RootNamespace>
     <AssemblyName>Fluent</AssemblyName>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);NU5125</NoWarn>
+    <NoWarn>$(NoWarn);NU5125;NU1507</NoWarn>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
@@ -49,6 +50,7 @@
 
   <PropertyGroup>
     <FilesForXamlCombine>Themes\Controls\*.xaml;Themes\Images.xaml;Themes\RibbonWindow.xaml;Themes\Converters.xaml;Themes\Common.xaml</FilesForXamlCombine>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(IsBuildingInsideRider)' == 'True'">
