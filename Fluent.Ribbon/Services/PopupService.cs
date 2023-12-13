@@ -322,7 +322,7 @@ public static class PopupService
                 break;
 
             default:
-                throw new ArgumentOutOfRangeException(nameof(e.DismissMode), e.DismissMode, "Unknown DismissMode.");
+                throw new ArgumentOutOfRangeException(nameof(e), e.DismissMode, "Unknown DismissMode.");
         }
     }
 

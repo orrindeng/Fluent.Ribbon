@@ -7,6 +7,7 @@
     <IsTestProject>true</IsTestProject>
 
     <NoWarn>$(NoWarn);SA0001;SA1602</NoWarn>
+    <TargetFramework>net6.0-windows</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Fluent.Ribbon.Showcase\Commanding\IRelayCommand.cs">
