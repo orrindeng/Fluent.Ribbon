@@ -33,6 +33,7 @@ using Windows.Win32.Graphics.Gdi;
 [TemplatePart(Name = "PART_DisplayOptionsButton", Type = typeof(Control))]
 [TemplatePart(Name = "PART_ToolbarPanel", Type = typeof(Panel))]
 [TemplatePart(Name = "PART_SelectedContentPresenter", Type = typeof(ContentPresenter))]
+[TemplatePart(Name = "PART_SelectedCustomContent", Type = typeof(ContentControl))]
 public class RibbonTabControl : Selector, IDropDownControl, ILogicalChildSupport
 {
     /// <summary>
@@ -139,6 +140,18 @@ public class RibbonTabControl : Selector, IDropDownControl, ILogicalChildSupport
 
     /// <summary>Identifies the <see cref="SelectedContent"/> dependency property.</summary>
     public static readonly DependencyProperty SelectedContentProperty = SelectedContentPropertyKey.DependencyProperty;
+
+    /// <summary>
+    /// SelectedCustomContent
+    /// </summary>
+    public Panel? SelectedCustomContentPanel
+    {
+        get { return (Panel?)this.GetValue(SelectedCustomContentPanelProperty); }
+        set { this.SetValue(SelectedCustomContentPanelProperty, value); }
+    }
+
+    /// <summary>Identifies the <see cref="SelectedCustomContentPanel"/> dependency property.</summary>
+    public static readonly DependencyProperty SelectedCustomContentPanelProperty = DependencyProperty.Register(nameof(SelectedCustomContentPanel), typeof(Panel), typeof(RibbonTabControl), new PropertyMetadata(default(Panel)));
 
     /// <summary>
     /// Gets or sets whether ribbon is minimized

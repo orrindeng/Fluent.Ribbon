@@ -113,6 +113,26 @@ public class RibbonTabControlAutomationPeer : SelectorAutomationPeer, ISelection
             }
         }
 
+        var customControl = this.OwningRibbonTabControl.SelectedCustomContentPanel;
+
+        if (customControl is not null)
+        {
+            foreach (UIElement? child in customControl.Children)
+            {
+                if (child is null)
+                {
+                    continue;
+                }
+
+                var automationPeer = CreatePeerForElement(child);
+
+                if (automationPeer is not null)
+                {
+                    children.Add(automationPeer);
+                }
+            }
+        }
+
         return children;
     }
 }

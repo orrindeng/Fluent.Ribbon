@@ -259,10 +259,14 @@
                 <ContentControl x:Name="mainContentControl"
                                 Margin="0"
                                 Focusable="False">
-                    <ContentPresenter x:Name="PART_SelectedContentPresenter"
-                                      Margin="0"
-                                      HorizontalAlignment="Stretch"
-                                      ContentSource="SelectedContent" />
+                    <DockPanel x:Name="PART_SelectedContentDockPanel" LastChildFill="False">
+                        <ContentPresenter x:Name="PART_SelectedContentPresenter"
+                                            Margin="0"
+                                            HorizontalAlignment="Stretch"
+                                            ContentSource="SelectedContent" />
+                        <ContentPresenter DockPanel.Dock="Right" ContentSource="SelectedCustomContentPanel"
+                                        x:Name="PART_SelectedCustomContent"></ContentPresenter>
+                    </DockPanel>
                 </ContentControl>
             </Border>
 
@@ -401,7 +405,7 @@
             <Trigger Property="IsMinimized" Value="True">
                 <!-- Switch content to popup -->
                 <Setter TargetName="mainContentControl" Property="Content" Value="{x:Null}" />
-                <Setter TargetName="popupContentControl" Property="Content" Value="{Binding ElementName=PART_SelectedContentPresenter, Mode=OneWay}" />
+                <Setter TargetName="popupContentControl" Property="Content" Value="{Binding ElementName=PART_SelectedContentDockPanel, Mode=OneWay}" />
                 <Setter TargetName="rowDefinition" Property="MinHeight" Value="0" />
                 <Setter TargetName="rowDefinition1" Property="MinHeight" Value="0" />
                 <!-- Switch content to popup END -->

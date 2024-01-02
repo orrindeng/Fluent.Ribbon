@@ -640,11 +640,47 @@ public class Ribbon : Control, ILogicalChildSupport
 
     // ReSharper disable once InconsistentNaming
     private static readonly DependencyPropertyKey TabControlPropertyKey =
-        DependencyProperty.RegisterReadOnly(nameof(TabControl), typeof(RibbonTabControl), typeof(Ribbon), new FrameworkPropertyMetadata(default(RibbonTabControl), FrameworkPropertyMetadataOptions.AffectsArrange | FrameworkPropertyMetadataOptions.AffectsMeasure, LogicalChildSupportHelper.OnLogicalChildPropertyChanged));
+        DependencyProperty.RegisterReadOnly(nameof(TabControl), typeof(RibbonTabControl), typeof(Ribbon), new FrameworkPropertyMetadata(default(RibbonTabControl), FrameworkPropertyMetadataOptions.AffectsArrange | FrameworkPropertyMetadataOptions.AffectsMeasure, OnTabControlChanged));
 
     /// <summary>Identifies the <see cref="TabControl"/> dependency property.</summary>
     public static readonly DependencyProperty TabControlProperty = TabControlPropertyKey.DependencyProperty;
 
+    private static void OnTabControlChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+    {
+        SelectedCustomContentPanelChanged(dependencyObject, eventArgs);
+    }
+
+    /// <summary>
+    /// SelectedCustomContent
+    /// </summary>
+    public Panel? SelectedCustomContentPanel
+    {
+        get { return (Panel?)this.GetValue(SelectedCustomContentPanelProperty); }
+        set { this.SetValue(SelectedCustomContentPanelProperty, value); }
+    }
+
+    /// <summary>Identifies the <see cref="SelectedCustomContentPanel"/> dependency property.</summary>
+    public static readonly DependencyProperty SelectedCustomContentPanelProperty = DependencyProperty.Register(nameof(SelectedCustomContentPanel), typeof(Panel), typeof(Ribbon), new PropertyMetadata(default(Panel), OnSelectedCustomContentPanelChanged));
+
+    private static void OnSelectedCustomContentPanelChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+    {
+        SelectedCustomContentPanelChanged(dependencyObject, eventArgs);
+    }
+
+    private static void SelectedCustomContentPanelChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+    {
+        var ribbon = dependencyObject as Ribbon;
+        if (ribbon is not null && ribbon.TabControl is not null)
+        {
+            var customControl = ribbon.SelectedCustomContentPanel;
+            if (customControl is not null)
+            {
+                ribbon.TabControl.SelectedCustomContentPanel = ribbon.SelectedCustomContentPanel;
+            }
+        }
+
+        LogicalChildSupportHelper.OnLogicalChildPropertyChanged(dependencyObject, eventArgs);
+    }
     #endregion
 
     #region IsSimplified
