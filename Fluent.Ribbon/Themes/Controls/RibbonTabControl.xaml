@@ -259,13 +259,13 @@
                 <ContentControl x:Name="mainContentControl"
                                 Margin="0"
                                 Focusable="False">
-                    <DockPanel x:Name="PART_SelectedContentDockPanel" LastChildFill="False">
+                    <DockPanel x:Name="PART_SelectedContentDockPanel">
+                        <ContentPresenter DockPanel.Dock="Right" ContentSource="SelectedCustomContentPanel"
+                                          x:Name="PART_SelectedCustomContent"></ContentPresenter>
                         <ContentPresenter x:Name="PART_SelectedContentPresenter"
                                             Margin="0"
                                             HorizontalAlignment="Stretch"
                                             ContentSource="SelectedContent" />
-                        <ContentPresenter DockPanel.Dock="Right" ContentSource="SelectedCustomContentPanel"
-                                        x:Name="PART_SelectedCustomContent"></ContentPresenter>
                     </DockPanel>
                 </ContentControl>
             </Border>
